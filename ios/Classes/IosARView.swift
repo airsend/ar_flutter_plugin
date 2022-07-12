@@ -42,7 +42,7 @@ class IosARView: NSObject, FlutterPlatformView, ARSCNViewDelegate, UIGestureReco
         binaryMessenger messenger: FlutterBinaryMessenger
     ) {
         self.sceneView = ARSCNView(frame: frame)
-        self.sceneViewautoEnablesDefaultLighting = true
+        self.sceneView.autoEnablesDefaultLighting = true
         self.coachingView = ARCoachingOverlayView(frame: frame)
         
         self.sessionManagerChannel = FlutterMethodChannel(name: "arsession_\(viewId)", binaryMessenger: messenger)
