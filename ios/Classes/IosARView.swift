@@ -287,6 +287,9 @@ class IosARView: NSObject, FlutterPlatformView, ARSCNViewDelegate, UIGestureReco
                 tapGestureRecognizer.delegate = self
                 self.sceneView.gestureRecognizers?.append(tapGestureRecognizer)
             }
+            else {
+
+            }
         }
 
         if let configHandlePans = arguments["handlePans"] as? Bool {
@@ -295,6 +298,14 @@ class IosARView: NSObject, FlutterPlatformView, ARSCNViewDelegate, UIGestureReco
                 panGestureRecognizer.maximumNumberOfTouches = 1
                 panGestureRecognizer.delegate = self
                 self.sceneView.gestureRecognizers?.append(panGestureRecognizer)
+            }
+            else {
+                for recognizer in self.sceneView.gestureRecognizers ?? [] {
+                    if recognizer is UIPanGestureRecognizer
+                    {
+                        self.sceneView.removeGestureRecognizer(recognizer)
+                    }
+                }
             }
         }
         
