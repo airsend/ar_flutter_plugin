@@ -315,6 +315,14 @@ class IosARView: NSObject, FlutterPlatformView, ARSCNViewDelegate, UIGestureReco
                 rotationGestureRecognizer.delegate = self
                 self.sceneView.gestureRecognizers?.append(rotationGestureRecognizer)
             }
+            else {
+                            for recognizer in self.sceneView.gestureRecognizers ?? [] {
+                                if recognizer is UIRotationGestureRecognizer
+                                {
+                                    self.sceneView.removeGestureRecognizer(recognizer)
+                                }
+                            }
+                        }
         }
         
         // Add coaching view
