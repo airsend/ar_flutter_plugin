@@ -1,4 +1,4 @@
-package io.carius.lars.ar_flutter_plugin_example
+package ru.tencar.arapp
 
 import io.flutter.embedding.android.FlutterActivity
 

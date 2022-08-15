@@ -64,6 +64,8 @@ class ARAnchorManager {
           break;
         case "onAnchorDownloadSuccess":
           final serializedAnchor = call.arguments;
+          print(
+              "DOWNLOADED ANCHOR");
           if (onAnchorDownloaded != null) {
             ARAnchor anchor = onAnchorDownloaded!(
                 Map<String, dynamic>.from(serializedAnchor));

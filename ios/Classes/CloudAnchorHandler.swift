@@ -48,18 +48,22 @@ class CloudAnchorHandler: NSObject, GARSessionDelegate {
     }
         
     func session(_ session: GARSession, didHost anchor: GARAnchor) {
+        print("---------------- didHost ------------------")
         pendingAnchors[anchor]?.1?.onCloudTaskComplete(anchorName: pendingAnchors[anchor]?.0, anchor: anchor)
     }
     
     func session(_ session: GARSession, didFailToHost anchor: GARAnchor) {
+        print("---------------- didFailToHost ------------------")
         pendingAnchors[anchor]?.1?.onCloudTaskComplete(anchorName: pendingAnchors[anchor]?.0, anchor: anchor)
     }
     
     func session(_ session: GARSession, didResolve anchor: GARAnchor) {
+        print("---------------- didResolve ------------------")
         pendingAnchors[anchor]?.1?.onCloudTaskComplete(anchorName: pendingAnchors[anchor]?.0, anchor: anchor)
     }
     
     func session(_ session: GARSession, didFailToResolve anchor: GARAnchor) {
+        print("---------------- didFailToResolve ------------------")
         pendingAnchors[anchor]?.1?.onCloudTaskComplete(anchorName: pendingAnchors[anchor]?.0, anchor: anchor)
     }
     

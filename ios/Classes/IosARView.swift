@@ -195,7 +195,7 @@ class IosARView: NSObject, FlutterPlatformView, ARSCNViewDelegate, UIGestureReco
                         cloudAnchorHandler = CloudAnchorHandler(session: arcoreSession!)
                         arcoreSession!.delegate = cloudAnchorHandler
                         arcoreSession!.delegateQueue = DispatchQueue.main
-                        
+                        print("---------------- arcoreMode TRUE ------------------")
                         arcoreMode = true
                     } else {
                         sessionManagerChannel.invokeMethod("onError", arguments: ["Error generating JWT, have you added cloudAnchorKey.json into the example/ios/Runner directory?"])
@@ -220,6 +220,7 @@ class IosARView: NSObject, FlutterPlatformView, ARSCNViewDelegate, UIGestureReco
                 if let anchorId = arguments!["cloudanchorid"] as? String {
                     print("---------------- RESOLVING INITIATED ------------------")
                     cloudAnchorHandler?.resolveCloudAnchor(anchorId: anchorId, listener: cloudAnchorDownloadedListener(parent: self))
+                    print("---------------- RESOLVING ENDED ------------------")
                 }
                 break
             default:
